@@ -1,6 +1,6 @@
 ## 👋 Hello! Welcome to my Portfolio 
 
-![Himanshu Chaudhari](https://github.com/Himachaudhari/HimaChaudhari)
+<img width="2000" height="600" alt="Blue   Black Geometric Technology LinkedIn Banner" src="https://github.com/user-attachments/assets/b21be524-6c52-4c4b-9234-db68b2aef998" />
 
 
 ## 📌About Me
