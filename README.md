@@ -75,29 +75,37 @@ __Project Overview:__\
 The system consists of two main components: \
 __1. Front-End [Microcontroller (LPC2148) side]:__\
 Acts like a real OTP Dynamic One-Time Password Generation:
- - RFID card reader to identify user
- - Keypad for PIN entry and transaction inputs
- - LCD display for menu and status messages
- - Communicates with backend PC via UART
- - Handles the OTP Generation(LCD, keypad, GSM module) 
-
+ - Input Interface: User enters a password or request via keypad or serial/UART input.
+ - Shared Secret / Seed: A stored token (counter, time-sync value, or key) within flash or NVRAM.
+ - OTP Computation: Implement HOTP-like (counter-based) or TOTP-like (time-based) logic using HMAC‑SHA1/SHA256, possibly in software. This dynamic 6-digit OTP is generated per interaction.
+ - Output: Displayed via LCD, UART, or transmitted via GSM/serial to remote device.
+ - Verification Mechanism: Server or second microcontroller recalculates expected OTP and verifies match.
 __2. Back-End [PC (Linux) side Application in C]:__\
-Simulates a banking system:
- - Stores user and transaction data using struct and file I/O
- - Receives commands via UART from MCU
- - Sends results and balance info back to MCU
- - Simulates a banking database using data structures and file handling 
+Simulates a otp system:
+ - Load user data: base32 secret, last-used timestep, retry count.
+ - Request input: USER_ID, OTP, OPERATION (via CLI or socket).
+ - Compute TOTP based on current UNIX time / 30 s.
+ - Validate OTP:
+Check that it matches generated code.
+Ensure it's not already used (compare timestep).
+If OK:
+Mark current timestep used.
+Reset retry count.
+Print “ACCESS GRANTED”; log success.
+If invalid:
+Increment retry count; lockout if exceeded.
+Log failure and reject.
+Each attempt is logged: timestamp, user ID, provided OTP, operation, and result.
 
 __Learning Keys:__
- - RFID Integration with LPC2148: Learned to interface RFID module with ARM7 using UART and validate unique card IDs.
- - PIN Verification Logic: Developed logic for secure PIN entry, attempt limits, and error handling in embedded C.
- - 4x4 Keypad & LCD Interfacing: Implemented a user-friendly interface for menu navigation using keypad and 16x2 LCD.
- - Buzzer Alerts: Used buzzer feedback for invalid actions and transaction notifications.
- - UART Communication: Configured serial communication between LPC2148 and Linux PC using MAX232 IC.
- - Protocol Design: Designed a command-response protocol for reliable data exchange between ATM front-end and PC.
- - File Handling in C: Used text/binary file operations to store user data, transactions, and mini-statements persistently.
- - Dynamic Data Structures: Applied linked lists and structures to manage banking operations like mini-statements and transaction logs.
- - Menu-Driven Console Interface: Created user menus for testing and debugging PC-side operations via terminal.
+ - HOTP (counter-based): Uses a shared secret and a synchronized counter between client and server. Each successful authentication increments the counter. Allows look‑ahead to handle out‑of-sync counters
+ - HMAC hashing: OTPs are produced by applying a keyed-hash message authentication code (SHA‑1 or SHA‑256) to the secret + counter (for HOTP) or time window (for TOTP), followed by dynamic truncation of output bits to derive a 6-digit code 
+ - Single-use enforcement: Once an OTP is used, it must not be accepted again, even within the same time window or counter value. Replay protection must be enforced.
+ - Base32 encoding: Secrets are stored in base32 format and decoded before OTP generation. Compatibility with standard authenticator apps and libraries is easier this way 
+ - Comprehensive event logging: Log all OTP-related events—attempts, success or failure, timestamp, user ID, operation context—for diagnostics and compliance.
+ - liboath (oathtool): A widely used C library that supports TOTP/HOTP and integrates easily into Linux/C applications 
+ - For critical operations like transactions, consider using OCRA (Challenge‑Response OTP, RFC 6287) where the OTP is tied to contextual data (e.g. amount, account) for stronger security.
+ - Metacognition: Be aware of your own thinking—plan, monitor your understanding, adjust strategies as needed. Examples include self-questioning, visualization, and reflection
  - Keil uVision & Flash Magic: Practiced embedded development cycle: code > compile > flash > test using LPC2148.
  - GCC & Linux Terminal Usage: Compiled and debugged C programs on Linux, improving command-line confidence.
  - Embedded-Desktop System Integration:  Understood complete flow of embedded system communicating with a software database.
