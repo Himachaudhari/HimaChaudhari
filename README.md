@@ -113,7 +113,7 @@ __Learning Keys:__
  - Debugging & Troubleshooting: Gained skills in tracing serial data issues, peripheral mismatches, and logical errors.
  - Real-Time Application Thinking: Developed understanding of real-world system behavior, user access security, and fault-tolerance.
 
-__📁 View Project LPC2148: 🔗[Link]()__
+__📁 View Project LPC2148: 🔗[Link](https://github.com/Himachaudhari/Dynamic-OTP-Driven-Secure-Access-System.git)__
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## 🌐 Let’s Connect!
