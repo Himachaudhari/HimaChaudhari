@@ -62,7 +62,7 @@ ________________________________________________________________________________
     - [Vector India: Advanced Embedded System](https://drive.google.com/file/d/1nTKeDTNMIQDpTZGpLLPsMFHwkrV1Ie2T/view?usp=drivesdk)
    - [Smart india hackathon 2023](https://drive.google.com/file/d/1nSFFJ127w64BKGxnjHH7jbN6gDz8g8I6/view?usp=drivesdk)
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-<img width="792" height="396" alt="Adobe Express - file" src="https://github.com/user-attachments/assets/49192ded-1165-4ebb-8e37-97ba6a3f4b83" />
+<img width="1584" height="396" alt="Adobe Express - file (1)" src="https://github.com/user-attachments/assets/29a40a80-423c-46aa-ad09-1b8fdc974139" />
 
 ## MAJOR PROJECTS
 
