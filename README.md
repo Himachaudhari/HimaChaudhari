@@ -62,8 +62,7 @@ ________________________________________________________________________________
     - [Vector India: Advanced Embedded System](https://drive.google.com/file/d/1nTKeDTNMIQDpTZGpLLPsMFHwkrV1Ie2T/view?usp=drivesdk)
    - [Smart india hackathon 2023](https://drive.google.com/file/d/1nSFFJ127w64BKGxnjHH7jbN6gDz8g8I6/view?usp=drivesdk)
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-(<img width="3780" height="1890" alt="Cream Blue Horizontal Simple Ramadan Kareem Islamic Banner " src="https://github.com/user-attachments/assets/c76f7d6b-9e5d-4d63-9d95-6c30fee5bf93" />
-)
+<img width="792" height="396" alt="Adobe Express - file" src="https://github.com/user-attachments/assets/49192ded-1165-4ebb-8e37-97ba6a3f4b83" />
 
 ## MAJOR PROJECTS
 
